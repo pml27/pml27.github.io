@@ -1,0 +1,105 @@
+body {
+  font: 16px "Open Sans", sans-serif;
+  color: #FFF;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  background: #000;
+  font-style: #FFF;
+  padding: 20px 20px;
+}
+.header .page-title {
+  color: #FFF;
+}
+@media (min-width: 768px) {
+  .header .page-title {
+    font-size: 24px;
+  }
+}
+@media (min-width: 992px) {
+  .header .page-title {
+    text-align: right;
+    margin-right: 80px;
+  }
+}
+.header img {
+  max-width: 75%;
+}
+
+.main-nav {
+  background: linear-gradient(#000, #4A4F55);
+}
+.main-nav ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+.main-nav .col-4.nav-container {
+  text-align: center;
+}
+.main-nav .nav-item a {
+  color: #9C9C9C;
+}
+.main-nav .nav-item a:hover {
+  color: #FFF;
+}
+.main-nav .nav-item a:active {
+  color: #FFF;
+}
+
+.nav-pipe [class*=col-]:not(:last-child):after {
+  background: linear-gradient(to right, #000, #4A4F55);
+  width: 2px;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  min-height: 40px;
+}
+
+.row.card-margins {
+  padding: 0 20px 0 20px;
+}
+@media (min-width: 768px) {
+  .row.card-margins {
+    padding: 0 80px 0 80px;
+  }
+}
+
+.card {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.226), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
+  min-height: 250px;
+}
+.card .card-body {
+  font-size: 14px;
+}
+.card a {
+  color: #000;
+}
+.card a:hover {
+  color: #00ff17;
+  text-decoration: none;
+}
+.card a .card-row {
+  position: absolute;
+  bottom: 30px;
+}
+.card.download-card {
+  box-shadow: none;
+}
+.card.download-card > .card-text {
+  max-width: 75%;
+}
+.card.download-card a div.dl-icon {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  background-image: url("../images/img-icon-download.svg");
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=app2.css.map */
