@@ -1,0 +1,143 @@
+//****************************** GLOBAL VARS **************************/
+$font-stack: 'Open Sans', sans-serif;
+
+//COLORS
+$white: #FFF;
+$black: #000;
+$abbey: #4A4F55;
+$dusty-grey: #9C9C9C;
+$corelight-green: #00ff17;
+$pelorous: #3db8c2;
+$powder-blue: #a8dfe4;
+$victoria: #45559c;
+$regal-blue: #003d71;
+
+//******************************* MIXINS *********************************/
+
+@mixin breakpoint($class) {
+    @if $class == xs {
+      @media (max-width: 767px) { @content; }
+    }
+   
+    @else if $class == sm {
+      @media (min-width: 768px) { @content; }
+    }
+   
+    @else if $class == md {
+      @media (min-width: 992px) { @content; }
+    }
+   
+    @else if $class == lg {
+      @media (min-width: 1200px) { @content; }
+    }
+   
+    @else {
+      @warn "Breakpoint mixin supports: xs, sm, md, lg";
+    }
+  }
+
+
+//******************************* STYLES *********************************/
+
+body {
+    font: 16px $font-stack;
+    color: $white;
+    padding: 0;
+    margin: 0;
+  }
+
+.header{
+    background: $black;
+    font-style: $white;
+    padding: 20px 20px;
+    .page-title{
+        color: $white;
+        //padding-bottom: 1px;
+        @include breakpoint(sm) {
+            font-size: 24px;
+        }
+        @include breakpoint(md){
+            text-align: right;
+            margin-right: 80px;
+        }
+    }
+    img{
+        max-width: 75%;
+    }
+}
+
+.main-nav{
+    background: linear-gradient($black,$abbey);
+    & ul{
+        list-style-type: none;
+        padding: 0;
+        width:100%;
+    }
+    & .col-4.nav-container{
+        text-align: center;
+    }
+    & .nav-item a{
+        color: $dusty-grey;
+        &:hover{
+            color: $white;
+            //border-bottom: rgb(0, 255, 0) 5px solid;
+        }
+        &:active{
+            color: $white;
+        }
+    }
+}
+
+.nav-pipe [class*='col-']:not(:last-child):after {
+    background: linear-gradient(to right,$black, $abbey);
+    width: 2px;
+    content: "";
+    display:block;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    right: 0;
+    min-height: 40px;
+  }
+.row.card-margins{
+    padding: 0 20px 0 20px;
+    @include breakpoint(sm) {
+        padding: 0 80px 0 80px;
+    }
+}
+
+.card {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.226), 0 3px 3px 0 rgba(0, 0, 0, 0.19);
+    min-height: 250px;
+    .card-body {
+        font-size: 14px;
+        //margin-top: 75%;
+    }
+    & a{
+        color: $black;
+        &:hover{
+        color: $corelight-green;
+        text-decoration: none;
+        }
+        .card-row{
+            position: absolute;
+            bottom: 30px;
+        }
+    }
+    &.download-card {
+        box-shadow: none;
+        >.card-text {
+            max-width: 75%;
+        }
+        a{
+            & div.dl-icon{
+                position: relative;
+                height: 22px;
+                width: 22px;
+                background-image: url("../images/img-icon-download.svg");
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}
+

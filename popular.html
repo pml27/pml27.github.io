@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!--link rel="stylesheet" href="css/minireset.css"
+    link rel="stylesheet" href="css/css-debug.css"-->
+    <link rel="stylesheet" href="css/app2.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Popular cheatsheets</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    
+</head>
+<body>
+<div id="app">
+    <div>
+        <div class="row header">
+            <div class="col">
+                <img :src="myLogo">
+            </div>
+            <div class="col align-self-end text-justify ">
+                <div class="page-title">{{ headerTitle }}</div>
+            </div>
+        </div>
+        <div class="nav-pipe main-nav" role="navigation">
+            <ul class="row">
+                <div class="col-4 col-md-2 nav-container" v-for="navLink in navLinks" :key="navLink.id">
+                    <li class="nav-item"><a class="nav-link" :href="navLink.url">{{ navLink.name }}</a></li>
+                </div>
+            </ul>
+        </div>
+        <!-- /row navigation -->
+        <div class="row card-margins">
+            <div class="col-6 col-md-4" v-for="popPdf in popPdfs" :key="popPdfs.id">
+                <div v-if="popPdf.name === 'all'">
+                    <div class="card-deck">
+                        <div class="card download-card mt-3 border-0 rounded-0">
+                            <img class="card-img" src="images/img-zeek-logs-fan.png" alt="Card image">
+                            <p class="card-text text-left mt-2 pl-3">{{ popPdf.desc }}</p>
+                            <a :href="popPdf.url" class="dl-icon pl-3">
+                                <div class="dl-icon pl-3"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="card-deck">
+                        <div class="card border-light mt-3 rounded-0">
+                            <div class="card-body">
+                                <a :href="popPdf.url">
+                                    <h5 class="card-title">{{ popPdf.name }}</h5>
+                                    <div class="card-row">
+                                        <p class="card-text card-desc"><span style="align-self: flex-end">{{ popPdf.desc }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="card-footer" :style="{ backgroundColor: popPdf.color }"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /row cards -->
+    </div> <!-- /container -->
+</div> <!-- /app -->
+<script src="app2.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
